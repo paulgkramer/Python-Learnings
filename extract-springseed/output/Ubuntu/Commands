@@ -1,6 +1,0 @@
-##DNS
-###Find the DNS server being used by DHCP client:
-nmcli dev list iface eth0 | grep IP4
-
-###Flush DNS
-sudo kill -HUP $(pgrep dnsmasq)
