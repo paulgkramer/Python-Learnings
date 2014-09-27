@@ -1,0 +1,23 @@
+#Concepts
+
+##Encryption
+
+Two types of encryption keys:
+
+Symmetric: Each peer uses the same key to encrypt and decrypt (shared secret). Eg. DES, AES, 3DES
+
+Asymmetric: A peer uses one key to encrypt and another key to decrypt (public/private encryption). Anything encrypted with the public key can only be decrypted with the private key.
+
+##Authentication
+
+Pre-shared keys (smaller deployments)
+
+Public key infrastructure (PKI - larger deployments)
+CRL: Certificate Revocation List
+
+##Data Integrity
+
+How to make sure the data has not changed since being sent
+
+MD5 - 128-bit hash
+SHA1 - 160-bit hash

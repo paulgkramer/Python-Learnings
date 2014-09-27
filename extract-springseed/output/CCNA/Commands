@@ -1,0 +1,656 @@
+#CCENT and CCNA: Day 2 Handouts
+
+ 
+##Exec Modes
+
+ 
+
+Logitrain-Switch> (User mode) 
+
+Logitrain-Switch> enable
+
+Logitrain-Switch# (Moves to privileged mode)
+
+Logitrain-Switch# configure terminal
+
+Logitrain-Switch(config)# (Moves to global configuration mode)
+
+Logitrain-Switch(config)# interface fastethernet 0/1
+
+Logitrain-Switch(config-if)# (Moves to interface configuration mode)
+
+Logitrain-Switch(config)# line console 0
+
+Logitrain-Switch(config-line)# (Moves to line configuration mode)
+
+ 
+
+ 
+##Accessing Help
+
+ 
+
+Logitrain-Switch> ? (Lists all commands available in user mode)
+
+Logitrain-Switch# ? (Lists all commands available in privileged mode)
+
+Logitrain-Switch# help (Describes how to get help)
+
+Logitrain-Switch# cl? (Lists all commands beginning with cl)
+
+Logitrain-Switch# clock ? (Lists the parameter available after clock)
+
+Logitrain-Switch# clo<Tab> (Completes the command - clock)
+
+ 
+
+ 
+##Setting the Clock
+
+ 
+
+Logitrain-Switch# clock set 01:00:00 25 August 2000 (Sets the time and date)
+
+ 
+
+Enhanced Editing
+
+Ctrl + A
+	
+
+Moves the cursor to the beginning of the command line
+
+Ctrl + E
+	
+
+Moves the cursor to the end of the command line
+
+Ctrl + D
+	
+
+Deletes a single character
+
+Ctrl + F
+	
+
+Moves the cursor forward one character
+
+Ctrl + B
+	
+
+Moves the cursor back one character
+
+Ctrl + P / Up Arrow
+	
+
+Recalls last (previous) command
+
+Ctrl + N / Down Arrow
+	
+
+Recalls more recent command
+
+ 
+
+##Console Password
+
+Logitrain-Switch(config)# line console 0 (Moves to console line config mode)
+
+Logitrain-Switch(config-line)# login (Password checking enabled at login)
+
+Logitrain-Switch(config-line)# password Logitrainconsole (Sets the console password)
+
+ 
+
+##VTY/Telnet Password
+
+Logitrain-Switch(config)# line vty 0 15 (Moves to vty line config mode)
+
+Logitrain-Switch(config-line)# login (Password checking enabled at login)
+
+Logitrain-Switch(config-line)# password Logitraintelnet (Sets the vty password)
+
+ 
+
+##Enable Secret Password
+
+Logitrain-Switch(config)# enable secret Logitrainsecret (Sets enable secret password)
+
+ 
+
+##Encrypting Passwords
+
+Logitrain-Switch(config)# service password-encryption (Encrypts console, vty passwords)
+
+ 
+
+##Switch Name
+
+Logitrain-Switch(config)# hostname LogitrainSystemsSwitch (Sets the switch name)
+
+LogitrainSystemsSwitch(config)# (Notice the hostname changes immediately)
+
+ 
+
+##Message of the Day Banner
+
+Logitrain-Switch(config)# banner  motd $
+
+No Unauthorized Access $ (Sets the banner for users connecting to switch)
+
+ 
+
+##Interface Description
+
+Logitrain-Switch(config)# interface fastethernet 0/24
+
+Logitrain-Switch(config-if)# description *** Connected to File-Server *** (Sets the interface description; useful to keep track of interface usage)
+
+ 
+
+##Enabling/Disabling an Interface
+
+Logitrain-Switch(config)# interface fastethernet 0/24
+
+Logitrain-Switch(config-if)# shutdown (Disables the interfaces)
+
+Logitrain-Switch(config-if)# no shutdown (Enables the interfaces)
+
+ 
+
+##Interface Speed
+
+Logitrain-Switch(config)# interface fastethernet 0/1
+
+Logitrain-Switch(config-if)# speed 10 (Sets the interface speed to 10 Mbps)
+
+Logitrain-Switch(config-if)# speed 100 (Sets the interface speed to 100 Mbps)
+
+Logitrain-Switch(config-if)# speed auto (Sets the interface speed to auto negotiation)
+
+ 
+
+##Interface Duplex
+
+Logitrain-Switch(config)# interface fastethernet 0/2
+
+Logitrain-Switch(config-if)# duplex half (Sets the interface duplex to half)
+
+Logitrain-Switch(config-if)# duplex full (Sets the interface duplex to full)
+
+Logitrain-Switch(config-if)# duplex auto (Sets the interface duplex to autonegotiation)
+
+ 
+
+##Setting a Switch Management Interface IP Address
+
+Logitrain-Switch(config)# interface VLAN 1
+
+Logitrain-Switch(config-if)# ip address 192.168.0.1 255.255.255.0 (Sets the interface IP Address to 192.168.0.1 for management and monitoring purposes)
+
+ 
+
+##IOS Copy Commands
+
+Logitrain-Switch# copy running-config startup-config (Copies current config to NVRAM)
+
+Logitrain-Switch# copy running-config tftp (Copies the current config to a TFTP Server)
+
+Logitrain-Switch# copy flash tftp (Copies IOS in the Flash to a TFTP Server)
+
+ 
+
+##Show Commands
+
+Logitrain-Switch# show interfaces (Displays detailed statistics of all interfaces)
+
+Logitrain-Switch# show interface fastethernet 0/24 (Displays interface statistics)
+
+Logitrain-Switch# show interface vlan 1 (Displays VLAN 1 statistics)
+
+Logitrain-Switch# show interface status (Displays all interfaces summary)
+
+Logitrain-Switch# show mac address-table (Displays complete MAC table)
+
+Logitrain-Switch# show mac address-table dynamic (Displays dynamic MAC entries)
+
+Logitrain-Switch# show running-config (Displays current config in DRAM)
+
+Logitrain-Switch# show startup-config
+
+
+
+
+
+#CCENT and CCNA: Day 3 Handouts
+
+##Trunking Configuration
+
+Before configuring Trunk links ensure specified interfaces of both switches are connected to each other; then configure both switches for trunking 
+
+Logitrain-Switch(config)# interface fastethernet 0/1
+
+Logitrain-Switch(config-if)# switchport mode trunk (Forces an interface to trunking)
+
+OR
+
+Logitrain-Switch(config-if)# switchport mode dynamic desirable (Makes the interface initiate negotiation for trunking)
+
+OR
+
+Logitrain-Switch(config-if)# switchport mode dynamic auto (Makes the interface respond to trunking)
+
+ 
+
+##Verifying Trunking
+
+Logitrain-Switch# show interfaces fastethernet 0/1 switchport (Displays Layer 2 information of the interface) 
+
+Logitrain-Switch# show interfaces trunk (Displays trunking information of all interfaces configured as trunk)
+
+Logitrain-Switch# show interfaces fastethernet 0/1 trunk (Displays trunking information of the interface Fastethernet 0/1)
+
+ 
+
+##Spanning Tree Protocol Configuration
+
+Logitrain-Switch(config)# spanning-tree vlan 100 root primary (Configures the switch as the STP root switch for VAN 100)
+
+Logitrain-Switch(config)# spanning-tree vlan 100 priority 4096 (Configures the STP priority to 4096 for VLAN 100)
+
+Logitrain-Switch(config)# interface fastethernet 0/24
+
+Logitrain-Switch(config-if)# spanning-tree cost 100 (Configures the STP cost of interface Fastethernet 0/24 to 100)
+
+ 
+
+##Verifying Spanning Tree Protocol Configuration
+
+Logitrain-Switch# show spanning-tree (Displays detailed information of STP)
+
+Logitrain-Switch# show spanning-tree interface fastethernet 0/24 (Displays detailed information of STP related to interface Fastethernet 0/24)
+
+Logitrain-Switch# show spanning-tree vlan 100 (Displays detailed information of STP related to VLAN 100)
+
+Logitrain-Switch# debug spanning-tree events (Debugs STP)
+
+ 
+
+##VLAN Configuration
+
+Logitrain-Switch(config)# vlan 100 (Creates VLAN 100) 
+
+Logitrain-Switch(config-vlan)# name Logitrain-CCNA (Assigns VLAN the name Logitrain-CCNA)
+
+Logitrain-Switch(config)# interface fastethernet 0/1
+
+OR
+
+Logitrain-Switch(config)# interface range fastethernet 0/1 - 5 
+
+Logitrain-Switch(config-if)# switchport mode access (Disables trunking on an interface)
+
+Logitrain-Switch(config-if)# switchport access vlan 100 (Puts the specified interface(s) into VLAN 100)
+
+ 
+
+##Verifying VLAN Configuration
+
+Logitrain-Switch# show vlan brief (Displays brief information about all VLANs)
+
+Logitrain-Switch# show vlan id 100 (Displays detailed information about VLAN 100)
+
+ 
+
+##VTP Configuration
+
+Logitrain-Switch(config)# vtp mode server (Configures VTP mode to server) 
+
+Logitrain-Switch(config)# vtp mode client (Configures VTP mode to client)
+
+Logitrain-Switch(config)# vtp mode transparent (Configures VTP mode to transparent)
+
+Logitrain-Switch(config)# vtp domain Logitrain (Configures switch to VTP domain Logitrain)
+
+Logitrain-Switch(config)# vtp password Logitrainvtp (Password protects VTP domain; password configured to Logitrainvtp)
+
+Logitrain-Switch(config)# vtp pruning (Enables pruning in VTP domain)
+
+ 
+
+##Verifying VTP Configuration
+
+Logitrain-Switch# show vtp status (Displays detailed VTP information)
+
+ 
+
+##IP Addressing Commands
+
+Logitrain-Router(config-if)# ip address 1.1.1.1 255.0.0.0 (Configures IP address)
+
+Logitrain-Router(config-if)# ip address dhcp (Obtains IP address from the DHCP server)
+
+Logitrain-Router(config-if)# no shutdown (Enables the interface)
+
+ 
+
+##Verifying IP Addressing Configuration
+
+Logitrain-Router# show ip interface brief (Displays summarized interface information)
+
+Logitrain-Router# show interfaces (Displays detailed interface information)
+
+ 
+
+##Serial Interface Configuration
+
+Logitrain-Router(config-if)# clock rate 64000 (Sets interface clocking to 64000bps, this command is required in a lab environment)
+
+Logitrain-Router(config-if)# bandwidth 64 (Sets interface bandwidth to 64kbps)
+
+ 
+
+##Static and Default Route Commands
+
+Logitrain-Router(config)# ip route 192.168.1.0 255.255.255.0 1.1.1.1 (Configures a static route to 192.168.1.0 /24 network via next hop router IP address 1.1.1.1)
+
+Logitrain-Router(config)# ip route 192.168.1.0 255.255.255.0 serial0/0/0 (Configures a static route to 192.168.1.0 /24 network via routerâs serial 0/0/0 interface)
+
+Logitrain-Router(config)# ip route 0.0.0.0 0.0.0.0 10.1.1.1 (Configures a static default route via next hop router IP address 10.1.1.1)
+
+ 
+
+##Verifying IP Routing Configuration
+
+Logitrain-Router# show ip route (Displays the routing table)
+
+Logitrain-Router# show ip route static (Displays only the static routes)
+
+ 
+
+##RIPv2 Configuration
+
+Logitrain-Router(config)# router rip (Moves to routing protocol configuration mode)
+
+Logitrain-Router(config-router)# version 2 (Enables version 2, by default it is 1)
+
+Logitrain-Router(config-router)# network 10.0.0.0 (Enables RIP on all interfaces in network 10.0.0.0)
+
+Logitrain-Router(config-router)# no auto-summary (Disables auto summarization)
+
+Logitrain-Router(config-router)# passive-interface Ethernet 0 (Configures RIP to listen only on Ethernet 0, no routing updates are sent on that interface)
+
+ 
+
+##Verifying RIPv2 Configuration
+
+Logitrain-Router# show ip protocols (Displays routing protocols information)
+
+Logitrain-Router# show ip route rip (Displays only the RIP routes)
+
+Logitrain-Router# debug ip rip (Turns on RIP debugging)
+
+
+
+
+
+#CCENT and CCNA: Day 4 Handouts
+
+##OSPF Configuration
+
+Logitrain-Router(config)# router ospf 1 (Configures OSPF with process-id 1)
+
+Logitrain-Router(config-router)# network 10.1.1.1 0.0.0.0 area 0 (Enables OSPF on an interface with IP address 10.1.1.1 and configures it in area 0)
+
+Logitrain-Router(config-router)# network 10.1.0.0 0.0.255.255 area 1 (Enables OSPF on all interfaces with IP addresses starting with 10.1 and configures them in area 1)
+
+Logitrain-Router(config-router)# router-id 1.1.1.1 (Configures router-id to 1.1.1.1)
+
+Logitrain-Router(config-router)# auto-cost reference-bandwidth 1000 (Configures OSPF reference bandwidth to 1000Mbps, the default is 100Mbps)
+
+Logitrain-Router(config-if)# ip ospf hello-interval 15 (Sets the OSPF hello interval to 15 sec. Timers must match between OSPF routers for neighbor relationship)
+
+Logitrain-Router(config-if)# ip ospf dead-interval 80 (Sets the OSPF dead interval to 80 sec. Timers must match between OSPF routers for neighbor relationship)
+
+Logitrain-Router(config-if)# ip ospf cost 22 (Overrides OSPF interface cost to 22)
+
+Logitrain-Router(config-if)# ip ospf authentication (Enables clear text authentication)
+
+Logitrain-Router(config-if)# ip ospf authentication-key Logitrain (Sets password to Logitrain)
+
+ 
+
+##Verifying OSPF Configuration
+
+Logitrain-Router# show ip protocols (Displays routing protocols information)
+
+Logitrain-Router# show ip route ospf (Displays only OSPF routes)
+
+Logitrain-Router# show ip ospf neighbor (Displays OSPF neighbor table)
+
+Logitrain-Router# show ip ospf interfaces (Displays interface information running OSPF)
+
+Logitrain-Router# show ip ospf database (Displays OSPF link state database)
+
+Logitrain-Router# clear ip ospf process (Clears OSPF process(es) on the router)
+
+ 
+
+##EIGRP Configuration
+
+Logitrain-Router(config)# router eigrp 10 (Configures EIGRP in autonomous system 10)
+
+Logitrain-Router(config-router)# network 10.0.0.0 (Enables EIGRP on all interfaces in network 10.0.0.0)
+
+Logitrain-Router(config-router)# network 10.1.1.1 0.0.0.0 (Enables EIGRP on an interface with IP address 10.1.1.1)
+
+Logitrain-Router(config-router)# network 10.1.0.0 0.0.255.255 (Enables EIGRP on all interfaces with IP addresses starting with 10.1)
+
+Logitrain-Router(config-router)# variance 3 (Sets EIGRP variance to 3 times)
+
+Logitrain-Router(config-router)# no auto-summary (Disables auto summarization)
+
+Logitrain-Router(config-if)# ip hello-interval eigrp 15 20 (Sets EIGRP hello interval to 20 sec for autonomous system 15)
+
+Logitrain-Router(config-if)# ip hold-time eigrp 15 30 (Sets EIGRP hold interval to 30 sec for autonomous system 15)
+
+ 
+
+##Verifying EIGRP Configuration
+
+Logitrain-Router# show ip protocols (Displays routing protocols information)
+
+Logitrain-Router# show ip route eigrp (Displays only EIGRP routes)
+
+Logitrain-Router# show ip eigrp neighbor (Displays EIGRP neighbor table)
+
+Logitrain-Router# show ip eigrp topology (Displays EIGRP topology table)
+
+Logitrain-Router# show ip eigrp interfaces (Displays interfaces running EIGRP)
+
+ 
+
+##EIGRP Route Summarization Configuration
+
+Logitrain-Router(config)# interface serial 0
+
+Logitrain-Router(config-if)# ip summary-address eigrp 100 10.1.0.0 255.255.0.0 (Configures summary route of 10.1.0.0 /16 out of serial 0 interface for EIGRP 100)
+
+ 
+
+##Network Address Translation Configuration
+
+Logitrain-Router(config)# interface serial 0
+
+Logitrain-Router(config-if)# ip nat inside (Configures serial 0 as inside interface)
+
+ 
+
+Logitrain-Router(config)# interface ethernet 0
+
+Logitrain-Router(config-if)# ip nat outside (Configures ethernet 0 as outside interface)
+
+ 
+
+Logitrain-Router(config)# ip nat inside source static 10.1.1.1 200.1.1.1 (Configures a static NAT entry to translate 10.1.1.1 inside address to 200.1.1.1 outside address)
+
+Logitrain-Router(config)# ip nat pool Logitrain-pool 171.1.1.1 171.1.1.15 netmask 255.255.255.240 (Configures NAT pool named Logitrain-pool with 16 outside IP addresses)
+
+Logitrain-Router(config)# access-list 1 permit 192.168.1.0 0.0.0.255 (Configures an ACL permitting 254 IP addresses from 192.168.1.1 to 192.168.1.254)
+
+Logitrain-Router(config)# ip nat inside source list 1 pool Logitrain-pool (Configures a dynamic NAT to translate ACL 1 inside addresses to Logitrain-pool outside addresses)
+
+Logitrain-Router(config)# ip nat inside source list 1 interface serial 0 (Configures PAT and translates ACL 1 inside addresses to serial0 IP address using port numbers)
+
+ 
+
+##Clearing, Verifying and Debugging Network Address Translation
+
+Logitrain-Router# clear ip nat translation * (Clears all dynamic NAT entries)
+
+Logitrain-Router# show ip nat translation (Displays active translations)
+
+Logitrain-Router# show ip nat statistics (Displays NAT statistics)
+
+Logitrain-Router# debug ip nat (Turns on NAT debugging)
+
+
+
+
+
+
+#CCENT and CCNA: Day 5 Handouts
+
+##Leased Line Configuration using HDLC and PPP
+
+Logitrain-Router(config)# interface serial 0
+
+Logitrain-Router(config-if)# encapsulation hdlc (Configures hdlc as serial 0 encapsulation, default encapsulation on serial interfaces)
+
+ 
+
+Logitrain-Router(config)# interface serial 0 
+
+Logitrain-Router(config-if)# encapsulation ppp (Configures ppp as serial 0 encapsulation)
+
+Logitrain-Router(config-if)# username remote-routers-hostname password same-on-both-routers (Configured on both ends of leased line, username must be remote routerâs hostname and password must be same on both routers)
+
+Logitrain-Router(config-if)# ppp authentication chap (Configures CHAP authentication protocol)
+
+ 
+
+##Verifying and Debugging Leased Line Configuration
+
+Logitrain-Router# show interface serial 0 (Displays serial 0 encapsulation)
+
+Logitrain-Router# debug ppp authentication (Turns on PPP authentication debugging)
+
+ 
+
+##Frame-Relay Configuration
+
+Logitrain-Router(config)# interface serial 0
+
+Logitrain-Router(config-if)# encapsulation frame-relay (Configures frame-relay encapsulation)
+
+Logitrain-Router(config-if)# no frame-relay inverse-arp (Disables Frame-Relay dynamic mapping creation)
+
+Logitrain-Router(config-if)# frame-relay map ip 172.16.30.254 55 broadcast (Configures static Frame-Relay mapping of local DLCI 55 to remote IP address 172.16.30.254 and allows broadcast/multicast to go through)
+
+Logitrain-Router(config-if)# interface serial 0.1 point-to-point (Creates a Frame-Relay point-to-point sub-interface)
+
+Logitrain-Router(config-if)# interface serial 0.2 multipoint (Creates a Frame-Relay multipoint sub-interface)
+
+Logitrain-Router(config-subif)# frame-relay interface dlci 34 (Configures the sub-interface to remote DLCI 34, used with point-to-point and multipoint sub-interfaces)
+
+ 
+
+##Verifying Frame-Relay Configuration
+
+Logitrain-Router# show frame-relay pvc (Displays Frame-Relay PVC statistics) 
+
+Logitrain-Router# show frame-relay map (Displays Frame-Relay IP to DLCI mappings)
+
+ 
+
+##Access Control List Configuration
+
+Logitrain-Router(config)# access-list 20 permit 192.168.0.1 0.0.0.0 (Configures standard ACL entry permitting traffic from source IP 192.168.0.1)
+
+Logitrain-Router(config)# access-list 20 permit host 192.168.0.1 (Same result as above, configures standard ACL entry permitting traffic from source IP 192.168.0.1)
+
+Logitrain-Router(config)# access-list 20 deny 192.168.0.1 0.0.0.0 (Configures standard ACL entry denying traffic from source IP 192.168.0.1)
+
+Logitrain-Router(config)# access-list 20 remark New-ACL-for-Sales-User (Configures remark for ACL 20, like descriptions makes working with ACLs easier)
+
+Logitrain-Router(config)# access-list 120 permit ip any host 1.1.1.1 (Configures extended ACL entry permitting traffic from any source to IP 1.1.1.1)
+
+Logitrain-Router(config)# access-list 120 deny tcp any host 1.1.1.1 eq 23 (Configures extended ACL entry denying traffic from any source to telnet IP 1.1.1.1)
+
+Logitrain-Router(config)# ip access-list standard HR-ACL (Configures standard named ACL)
+
+Logitrain-Router(config-std-nacl)# deny host 192.168.0.1 (Denies traffic from source IP 192.168.0.1)
+
+ 
+
+Logitrain-Router(config)# interface serial 0
+
+Logitrain-Router(config-if)# ip access-group HR-ACL in (Applies HR-ACL inbound on interface serial 0)
+
+ 
+
+Logitrain-Router(config)# line vty 0 15
+
+Logitrain-Router(config-line)# access-class 20 in (Applies ACL 20 inbound on VTY lines)
+
+ 
+
+Verifying Access Control List Configuration
+
+Logitrain-Router# show access-lists (Displays ACL entries and matches to the entries)
+
+Logitrain-Router# show ip access-lists (Displays IP ACL entries and matches to the entries) 
+
+Logitrain-Router# show ip interface serial 0 (Displays whether ACL has been applied to the interface serial 0)
+
+ 
+
+##IPv6 Address Configuration
+
+Logitrain-Router(config)# ipv6 unicast-routing (Turns on IPv6 support on the router)
+
+Logitrain-Router(config)# interface fastethernet 0
+
+Logitrain-Router(config-if)# ipv6 address 2002:1111:AAAA:1::/64 eui-64 (Configures IPv6 address using Extended Unique Identifier, the IPv6 Address contains the MAC address of the interface fastethernet 0. The complete IP address may be 2002:1111:AAAA:1:213:19FF:FE7B:5004)
+
+Logitrain-Router(config-if)# ipv6 address 2002:2222:BBBB:2::1/64 (Configures IPv6 address. The complete IP address is 2002:2222:BBBB:2::1)
+
+ 
+
+##Verifying IPv6 Address Configuration
+
+Logitrain-Router(config)# show ipv6 interfaces (Displays detailed IPv6 statistics of all interfaces)
+
+Logitrain-Router# show ipv6 interface fastethernet 0 (Displays detailed IPv6 statistics of fastethernet 0 interface)
+
+Logitrain-Router# show ipv6 interface brief (Displays IPv6 details of all interfaces briefly)
+
+ 
+
+##RIPng Configuration
+
+Logitrain-Router(config)# ipv6 router rip Logitrain (Configures RIPng instance Logitrain)
+
+Logitrain-Router(config-rtr)#
+
+Logitrain-Router(config)# interface fastethernet 0/1
+
+Logitrain-Router(config-if)# ipv6 rip Logitrain enable (Configures RIPng Logitrain instance on interface fastethernet 0/1)
+
+ 
+
+##Verifying RIPng Configuration
+
+Logitrain-Router(config)# show ipv6 protocols (Displays currently configured IPv6 routing protocols detail) 
+
+Logitrain-Router# show ipv6 route (Displays IPv6 routing table)

@@ -1,0 +1,7 @@
+service rsyslog restart
+service rabbitmq-server start
+service haproxy start
+service kz-whistle_apps start
+service kz-ecallmgr start
+service kamailio start
+service httpd start

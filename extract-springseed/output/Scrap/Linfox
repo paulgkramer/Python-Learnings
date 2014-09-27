@@ -1,0 +1,4 @@
+Problem: Cannot connect wirelessly to network or via ethernet cable connected to procurve switch. Cannot console into main procurve switch.
+
+1. Dirdct connect to modem give 10.0.0.x address and internet connectivity
+2. disconnecting new switch does not fix problem

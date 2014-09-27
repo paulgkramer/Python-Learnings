@@ -1,0 +1,20 @@
+In this tip, we will learn how to make a backup of all packages and applications installed from repositories or Ubuntu Software Center under Ubuntu, Linux Mint, or any Debian-based system. This will help you easily restore them after installing a new copy of your operating system without the need to install each package separately. With just a few commands, you will be able to store a list of all installed applications and packages in a text file, then you can use this file to install all your packages automatically.
+
+Getting Started
+
+1. Open the terminal and make a backup copy of your applications with this command:
+
+sudo dpkg --get-selections > backup.txt
+
+Now move the backup.txt file to another location (USB drive, CD, external hard drive, etc.)
+
+2. After a new installation of Ubuntu/Linux Mint, cd to the folder containing your text file (backup.txt), then restore your packages with these commands:
+
+sudo apt-get install aptitude 
+sudo dpkg --clear-selections 
+sudo dpkg --set-selections < backup.txt 
+sudo aptitude install
+
+Then follow given prompts.
+
+Note: You may also use Ubuntu Software Center to sync and reinstall your applications on different Ubuntu computers. Open Ubuntu Software Center and head to File > Sync Between Computers.

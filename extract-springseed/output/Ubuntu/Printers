@@ -1,0 +1,37 @@
+- First of all, make sure you have the IP address of the Printer you want to set up;
+
+then open a browser and type in the URL bar: 
+
+localhost:631
+
+Now you will gain access at CUPS Printer Server of your Ubuntu system.
+
+To add a new printer, click on 
+ADMINISTRATION tab
+
+Add printer
+
+Scroll down the page and under "Other network printers" select 
+
+AppSocket/HP Jet Direct
+
+and press Continue
+
+
+Now type the IP address of your printer, like this:
+
+socket://xxx.xxx.xxx.xxx
+
+and click on Continue
+
+Now just type the name of the Printer as you want to see it on your sistem (e.g. : Konica_C280)
+and click on Continue
+
+Now you have to choose the driver, under "Make" (I guess it's "make" in english, I see it in italian) search the list for GENERIC
+
+and then click on Continue
+
+And now in this other list search for Generic PostScript Level 1 Printer Foomatic/Postscript1 (recommended) , which is the one I successfully used.
+Then click on ADD PRINTER.
+
+Now that you have added the printer, click on the "Interrogate printer for default options" button on the upper left and you should now have a totally functional Konica Minolta C280 printer set up on your system.

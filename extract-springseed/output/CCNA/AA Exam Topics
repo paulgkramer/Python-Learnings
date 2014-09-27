@@ -1,0 +1,239 @@
+
+CCNA Composite Exam: The 200-120 CCNAX is the composite exam associated with the Cisco CCNA Routing and Switching certification. Candidates can prepare for this exam by taking the Interconnecting Cisco Networking Devices:  Accelerated (CCNAX) course. This exam tests a candidate's knowledge and skills required to install, operate, and troubleshoot a small to medium size enterprise branch network. The topics include all the areas covered under ICND 1 and ICND2 Exams.
+ 
+The following topics are general guidelines for the content likely to be included on the Cisco Certified Network Associate exam. However, other related topics may also appear on any specific delivery of the exam. In order to better reflect the contents of the exam and for clarity purposes, the guidelines below may change at any time without notice.
+
+## Operation of IP Data Networks
+
+*   Operation of IP Data Networks
+*   Recognize the purpose and functions of various network devices such as Routers, Switches, Bridges and Hubs.
+*   Select the components required to meet a given network specification.
+*   Identify common applications and their impact on the network
+*   Describe the purpose and basic operation of the protocols in the OSI and TCP/IP models.
+*   Predict the data flow between two hosts across a network.
+*   Identify the appropriate media, cables, ports, and connectors to connect Cisco network devices to other network devices and hosts in a LAN
+
+## LAN Switching Technologies
+
+*   Determine the technology and media access control method for Ethernet networks
+*   Identify basic switching concepts and the operation of Cisco switches.
+
+*   Collision Domains
+*   Broadcast Domains
+*   Types of switching
+*   **CAM Table**   Configure and verify initial switch configuration including remote access management.
+
+*   Cisco IOS commands to perform basic switch setup*   Verify network status and switch operation using basic utilities such as ping, telnet and ssh.
+*   Identify enhanced switching technologies
+
+*   **RSTP**
+*   **PVSTP**
+*   **Ethercnannels**   Describe how VLANs create logically separate networks and the need for routing between them.
+
+*  Explain network segmentation and basic traffic management concepts*   Configure and verify VLANs
+*   **Configure and verify trunking on Cisco switches**
+
+*   **DTP**
+*   **Auto negotiation**   Configure and verify PVSTP operation                
+
+## IP addressing (IPv4 / IPv6)
+
+*   Describe the operation and necessity of using private and public IP addresses for IPv4 addressing
+*   Identify the appropriate IPv6 addressing scheme to satisfy addressing requirements in a LAN/WAN environment.
+*   Identify the appropriate IPv4 addressing scheme using VLSM and summarization to satisfy addressing requirements in a LAN/WAN environment.
+*   Describe the technological requirements for running IPv6 in conjunction with IPv4 such as dual stack
+*   Describe IPv6 addresses
+
+## IP Routing Technologies
+
+*   Describe basic routing concepts
+
+*   **CEF**
+*   Packet forwarding
+*   **Router lookup process**   Describe the boot process of Cisco IOS routers
+
+*   POST
+*   **Router bootup process***   Configure and verify utilizing the CLI to set basic Router configuration
+
+*   Cisco IOS commands to perform basic router setup*   Configure and verify operation status of a device interface, both serial and ethernet
+*   Verify router configuration and network connectivity
+
+*   Cisco IOS commands to review basic router information and network connectivity*   Configure and verify routing configuration for a static or default route given specific routing requirements
+*   Manage Cisco IOS Files
+
+*   Boot preferences
+*   Cisco IOS image(s)
+*   Licensing*   Differentiate methods of routing and routing protocols
+
+*   Static vs. Dynamic
+*   Link state vs. Distance Vector
+*   Administrative distance
+*   split horizon
+*   metric
+*   next hop
+*   ip routing table
+*   Passive Interfaces*   Configure and verify OSPF (single area)
+
+*   Benefit of single area
+*   **neighbor adjacencies**
+*   OSPF states
+*   Discuss Multi area
+*   Configure OSPF v2
+*   Configure OSPF v3
+*   Router ID
+*   Passive interface
+*   LSA types*   Configure and verify EIGRP (single AS)
+
+*   Feasible Distance / Feasible Successors /Administrative distance
+*   Feasibility condition
+*   Metric composition
+*   Router ID
+*   Auto summary
+*   Path selection
+*   Load balancing
+
+*   Equal
+*   Unequal*   Passive interface*   Configure and verify interVLAN routing (Router on a stick)
+
+*   sub interfaces
+*   upstream routing
+*   encapsulation*   Configure SVI interfaces
+
+## IP Services
+
+*   Configure and verify DHCP (IOS Router)
+
+*   configuring router interfaces to use DHCP
+*   DHCP options*   excluded addresses
+*   lease time*   Describe the types, features, and applications of ACLs
+
+*   Standard
+
+*   Sequence numbers
+*   Editing*   Extended
+*   Named
+*   Numbered
+*   Log option*   Configure and verify ACLs in a network environment
+
+*   Named
+*   Numbered
+*   Log option*   Identify the basic operation of NAT
+
+*   Purpose
+*   **Pool**
+*   **Static**
+*   **1 to 1**
+*   Overloading
+*   Source addressing
+*   One way NAT*   Configure and verify NAT for given network requirements
+*   Configure and verify NTP as a client
+*   Recognize High availability (FHRP)
+
+*   VRRP
+*   HSRP
+*   GLBP*   Configure and verify Syslog
+
+*   Utilize Syslog Output*   Describe SNMP v2 &amp; v3
+
+## Network Device Security
+
+*   Configure and verify network device security features such as
+
+*   Device password security
+*   Enable secret vs enable
+*   Transport
+*   Disable telnet
+*   SSH
+*   VTYs
+*   Physical security
+*   Service password
+*   Describe external authentication methods*   Configure and verify Switch Port Security features such as
+
+*   **Sticky MAC**
+*   MAC address limitation
+*   Static / dynamic
+*   Violation modes
+
+*   Err disable
+*   Shutdown*   Protect restrict
+*   Shutdown unused ports
+*   Err disable recovery
+*   Assign unused ports to an unused VLAN
+*   Setting native VLAN to other than VLAN 1*   Configure and verify ACLs to filter network traffic
+*   Configure and verify an ACLs to limit telnet and SSH access to the router
+
+## Troubleshooting
+
+*   Identify and correct common network problems
+*   **Utilize netflow data**
+*   Troubleshoot and correct common problems associated with IP addressing and host configurations.
+*   Troubleshootand Resolve VLAN problems
+
+*   identify that VLANs are configured
+*   port membership correct
+*   IP address configured*   Troubleshoot and Resolve trunking problems on Cisco switches
+
+*   correct trunk states
+*   correct encapsulation configured
+*   correct vlans allowed*   Troubleshoot and Resolve Spanning Tree operation issues
+
+*   root switch
+*   priority
+*   mode is correct
+*   port states*   Troubleshoot and Resolve routing issues
+
+*   routing is enabled*   routing table is correct
+*   correct path selection*   Troubleshoot and Resolve OSPF problems
+
+*   **neighbor adjancies**
+*   Hello and Dead timers
+*   OSPF area
+*   Interface MTU
+*   Network types
+*   Neighbor states
+*   **OSPF topology database**   Troubleshoot and Resolve EIGRP problems
+
+*   neighbor adjancies
+*   AS number
+*   Load balancing
+*   Split horizon*   Troubleshoot and Resolve interVLAN routing problems
+
+*   Connectivity
+*   Encapsulation
+*   Subnet
+*   Native VLAN
+*   Port mode trunk status*   Troubleshoot and Resolve ACL issues
+
+*   Statistics
+*   Permitted networks
+*   Direction*   Troubleshoot and Resolve WAN implementation issues
+
+*   Serial interfaces
+*   PPP
+*   Frame relay*   Troubleshoot and Resolve Layer 1 problems
+
+*   Framing
+*   CRC
+*   Runts
+*   Giants
+*   Dropped packets
+*   Late collision
+*   Input / Output errors*   Monitor NetFlow statistics*   Troubleshoot etherchannel problems
+
+## WAN Technologies
+
+*   Identify different WAN Technologies
+
+*   **Metro Ethernet**
+*   VSAT
+*   Cellular 3G / 4G
+*   MPLS
+*   T1 / E1
+*   ISDN
+*   DSL
+*   Frame relay
+*   Cable
+*   VPN*   Configure and verify a basic WAN serial connection
+*   Configure and verify a PPP connection between Cisco routers
+*   Configure and verify Frame Relay on Cisco routers
+*   Implement and troubleshoot  PPPoE

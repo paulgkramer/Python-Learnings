@@ -1,0 +1,10 @@
+#Concepts
+
+ABR: Area border router
+
+* Only need to add different area to border router
+
+To summarize from ABR to backbone area:
+
+    #router ospf 1    
+    #area 10 range <summary route>

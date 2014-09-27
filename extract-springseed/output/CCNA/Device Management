@@ -1,0 +1,58 @@
+#Concepts
+
+##The IOS Boot Process
+1. Check the configuration register
+2. Check for "boot system" commands in startup commands
+3. Look for first IOS image in flash
+4. Broadcast for a TFTP server
+5. Boot to ROMMON
+
+###Configuration Register
+* 2100: ROMMON - Bad flash IOS or flash memory issue
+* 2102: Boot Normally
+* 2101: RXBOOT
+* 2142: Ignore NVRAM - password recovery ("copy start run" and then change passwords)
+
+
+##Understanding File Storage Locations
+
+Flash: IOS
+RAM: IOS copied from Flash after bootup
+NVRAM: startup-config
+
+**Copy into RAM will do a merge of configurations**
+
+
+
+##IOS 15 - License Management
+
+BEfore IOS version 15 (12.x versions and prior), all inclusive IOS features
+
+- IP base
+- Adv. Security
+- Adv. IP Servers
+- IP Voice
+- Ent. Base
+- Ent. Services
+
+Post IOS version 15, all features in image; activated with license key
+
+- IP Base
+- Data (MPLS, ATM, Mutliprotocol)
+- Unified Communication (VOIP)
+- Security (Firewall, VPN, encryption)
+
+
+#Configuration
+
+    #config-register 0x2100
+
+
+    To load an IOS from TFTP server
+    #boot system tftp://<name of flash file>
+
+    To show config register, licenses 
+    #show version
+
+    To install eval license
+    #license install

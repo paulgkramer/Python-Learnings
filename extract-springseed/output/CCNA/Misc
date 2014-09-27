@@ -1,0 +1,7 @@
+* The destination IP address 10.1.5.65 belongs to 10.1.5.64/28, 10.1.5.64/29 & 10.1.5.64/27
+subnets but the “longest prefix match” algorithm will choose **the most specific subnet mask** -> the
+prefix “/29 will be chosen to route the packet. Therefore the next-hop should be 10.1.3.3 -> 
+
+
+* 4 equal cost paths alowed in OSPF
+

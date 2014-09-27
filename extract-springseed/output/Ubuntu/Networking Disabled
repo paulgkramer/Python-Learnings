@@ -1,0 +1,21 @@
+How to Fix Missing (Not Showing) Network Manager Icon in Ubuntu 13.04/12.10
+ Network, Tips  Saturday, August 17, 2013
+
+ 
+If you cannot connect to the Internet (wired/wireless connection) because the network manager applet is no longer showing in the top panel of Ubuntu 13.04/12.10, you can try the solution given below which may solve your problem.
+
+Getting Started
+
+Open the terminal (CTRL+ALT+T) and stop the network manager process if it is still running in the background with this command:
+
+sudo service network-manager stop
+
+Now remove this file using the following command:
+
+sudo rm /var/lib/NetworkManager/NetworkManager.state
+
+Start the network manager now with this command:
+
+sudo service network-manager start
+
+The network manager icon will appear again in the top panel of Ubuntu Unity.

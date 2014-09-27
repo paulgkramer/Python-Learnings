@@ -1,0 +1,158 @@
+2. Program/install the ATA and phones
+
+ATA Phones:
+
+1. Concerto
+2. Latin Room
+3. Sonata
+
+Test Phones:
+
+Adrian Seg: 158
+Gandi Gan: 108
+
+Test AD user:
+schepisi
+password
+
+
+AAPT SIP Proxies:
+
+sipvoice.mel.aapt.com.au 202.10.4.138
+sipvoice.syd.aapt.com.au 202.10.4.139
+
+
+25/10
+
+2. assign SIP extension to dummy DID number
+3. Logo on the screensaver
+4. Dim screen after one minute and show screen saver in class of service
+5. whitelabel of MCA web login
+6. Check four power injectors with Paul
+8. Record queue voicemail boxes and add buttons to users phones
+
+
+4/11
+
+1. Ask Gandi and Drew whether ACD group presence keys and other keys should be added to all ACD agents phones 
+
+    - All group members should login and out of phones with one key apart from carnegie
+        
+
+2. Update ACD group skill levels to reflect Yamaha documentaiton
+3. Check PBX and CCM licenses and apply new CCM agent licenses if needed
+4. Record messages for all queue mailboxes and add keys to phones
+5. Setup 5550 Console. General Enquiries queue = 111. Reception extension in data collection = 111.
+    - Gandi will install the console after hours
+6. Create conference codes for users
+7. Test indial to queues using test dummy range
+8. Setup remaining analog extensions and test.
+9. test that all queues end up at either voicemail or reception 
+12. How to set operator to 9 on the system
+
+
+
+Before I leave:
+
+- ask about sim cards for GSM gateway
+- test analog extensions
+
+**Drews Corrections**
+
+1. Transfers to reception are failing and call is dropped from main menu in general enquiries sub routine.
+2. Split up WAV files
+3. General Enquiry, Press 5 -> prompt does not repeat but call did transfer to reception once. Doesn't any longer. After deleting the "no digits have been selected" audio activity, the audio still plays. **FIXED**
+4. Global no answer to voicemail for all queues = 20 seconds unless stipulated in plan **FIXED**
+5. General Enquries Line OOH -> After 10 seconds of no response, call does not hang up **FIXED**
+6. Music between transfering from CCM to PBX - can it be turned off **BY DESIGN - NO FIX**
+7. General Enquries OOH -> press 6 to repeat doesnt work the second time with call  exhibiting silence but doesn't hang up - **FIXED**
+8. Change Bank Holiday to Public
+9. General Enquiry AA#4 for public holiday is not correct. Needs to play WAV 3.
+10. UCA - An unknown error occurred while validating credentials **FIXED**
+11. CCM subroutines cannot be saved. **FIXED**
+12. CCM server seems to become unavailable accoridng to the call centre client and when dialing menus **FIXED**
+13. General Enquiry business hours -> press 6 is meant to repeat the prompt: drops the call instead **FIXED**
+14. Pickup group for IT: 181, 158, 108 **COMPLETE**
+15. Check customer communication of upgrades **Paul Baker can communicate any neccesary upgrades**
+16. Range of dates in schedule
+17. Setup port 3 and 4 of GSM gateway
+18. Double check that eight IVR ports are configured in call flows
+19. Test external music on hold **WORKS**
+20. Talk to Rob RE: cut over from Telstra to AAPT SIP trunks on Friday 6th December - **CHECK WITH ROB**
+21. Check with Paul RE. headset on console and answering calls away from desk (headset lifter?) - **setup secondary handset in huntgroup for reception remote answering - CHECK WITH STEVE**
+22. HTML Toolkit
+23. Setup a phone registered with the Richmond colo PBX in South Melbourne to check that the PBX is operational
+
+Jamie 0412341778
+
+wednesday 4th all day 9AM-5PM
+thursday 5th 9am - 1PM
+Friday 6th 9-1:30PM
+Monday 9th Maybe
+T
+
+**27th November**
+
+1. Create a voicemail box for reception **CREATED**
+2. OOH Gen Enq. - Thank you for calling message playing once at conclusion of options and again after 20 seconds, then hang up. **FIXED**
+3. If agent does not answer call, is made absent. How to ensure that agent is not made absent and phone continues to ring for caller in queue. 
+4. Schedule Public Holidays
+5. YMEC schedule (grouping of business hours of monday - friday, saturday)
+6. Neveens phone not logged in 
+7. Christmas messages need to be re-recorded and reimported as generic messages
+8. AV Dealer hotline - transfer to queue and interflow digit list needed instead of menu **FIXED**
+9. Import "Please make you selection now" prompt once it is recorded
+10. Extgernal hot desk users are hanging up immediately in AV dealer hotline - **CREATE SPEED DIAL EXTENSIONS FOR MOBILE USERS** - SYSTEM SPEED DIAL PROBLEM
+11. Called in to MPD dealer support - call was silent. Transfer to reception dropped the call completely. Deleting and recreating the transfer step fixed the problem. **FIXED**
+12. ASC Call Path -> Press 4 -> Prompt does not play. Need to check dynamic RAD. **FIXED**
+13. 5111 CLID from GSM Gateway
+14. Set caller ID to 5111 on PBX for all extensions
+15. Mitel Lotus Notes integration
+16. DBMS Check
+17. Ask Gandi about who needs MCA access and setup reservationless conferences
+18. Gandi to help receptionist setup voicemail message for reception and setup secondary phone
+19. Fix queue priorities
+
+**3rd December
+
+1. Finish ATA configuration and test analog phones after hours
+
+3. conferencing ports - only one currently
+4. UCA not opening automatically because of client update. Can't be isntalled because of lack of administrator rights **GANDI**
+5. add buttons to phones for queues
+6. send jamie list of voicemail boxes and queue groups/members
+7. queue group skill priorities
+8. John Saccaro 150 fix voicemail from CST queue
+9. best way of checking shared mailboxes - pressing MWI doesnt work **works on some phones. Will need to test buttons on all ACD agent phones**
+10. Hannah and matthew madden: need to setup AD integration again
+11. Make busy button on all phones
+12. IT queue not working on Adrians phone
+13. Supervisor CCC permissions
+14. Make busy codes for different actions
+15. Send quic reference guides to users
+16. Lyn and Tim have left
+17. group voicemail boxes - some MWI buttons work, some dont
+18. Adrians UCA - no lines available
+17. Gandi call forwarding on the handset not working
+18. 
+
+
+Agents: 108,129,132,143,145,148,150,157,158,160,161,167,171,172,177,180,182,195,198,220,224,252,263
+
+
+5/11
+
+1. Convert Atsuko taylor to a ACD hot desk agent and ensure extension number is 140 and add her to accounts and YMEC private lessons. Remove Julian and Neveen from YMEC accounts. Private lessons add Atsuko and Methnie.
+2. CHeck MPD agent COS - displaying not allowed when present is pressed
+3. "Line is currently in use" when deleting 2002 MWI key from MPD phones
+4. Timothy Steers 224 -> Nicole Pasmanik
+5. Lyn Walker 160 -> Matt Livingstone
+
+#6/11 Cutover
+
+1. Login Atsukos phone
+2. Check if VM key works on Atsukos phone - if so then all VM single line appearances will need to be recreated within the bounds of 24 keys
+3. Why arn't Matt Livingston (160) and Daniel Cooper (161) extensions listed in Employee? Run test calls with MPD queue.
+4. Extensions not paired with agent IDs in YSE: Gandi, Andrew Cooper, Matt Livingston etc.
+
+

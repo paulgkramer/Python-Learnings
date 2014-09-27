@@ -1,0 +1,68 @@
+#Concepts
+
+A list of permit and deny statements 
+
+- permit 192.168.2.50
+- deny 192.168.1.0/24
+- permit TCP port 80 for 200.1.1.1
+
+
+* Invisable implicit deny at the bottom of each list
+* traffic flows freely through routers until an access list is applied
+
+##Standard
+
+* Matches based only on source address
+* lower processor utilisation
+* affect depends on application (i.e. VOIP with QoS) 
+
+###"Unreachable" in a ping command usually means blocked
+
+###* Apply as close to the destination as possible to avoid falsee positives because the net is so wide (source IP address)
+
+##Extended
+
+* Matches based on source/destination address, protocol, source/destination port number
+
+* Higher processor utilisation
+
+* Syntax takees some time to learn
+
+###Apply as close to the source as possible to save on wasted bandwidth
+
+###ALWAYS remember to permit all other traffic if router is in between networks
+
+
+##Reflexive (established)
+
+* allows return traffic for internal requests
+
+#Configuration
+
+## Standard Numbered Access Lists
+    #access-list 1 permit all
+    #access-list 1 deny host 10.1.1.1
+    #ip access-group 1 in
+
+##Standard Named Access Lists
+    #ip access-list standard BLOCK_PC2_ACL
+    #deny 192.168.2.50 0.0.0.0
+    #permit any
+
+**"ip access-list" allows named access lists
+
+
+## Numbered Extended Access-Lists
+
+    # access-list 100 deny ip 192.168.1.0 0.0.0.255 192.168.2.128 0.0.0.127
+    # access-list 100 permit ip any any
+
+    # ip access-list extended 100
+    # 11 deny tcp 192.168.1.50  0.0.0.0 192.168.2.50 0.0.0.0 eq 80
+    # 12 deny tcp 192.168.1.50  0.0.0.0 192.168.2.50 0.0.0.0 eq 443
+
+*Question 236.*
+
+    #access-list 100 permit tcp host 192.168.33.3 host 172.22.242.23 eq 80
+    #access-list 100 deny tcp any host 172.22.242.23 eq 80
+    #access-list 100 permit ip any any

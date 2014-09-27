@@ -1,0 +1,33 @@
+#Concept
+
+* For leased line connections
+* enabled by default for serial connections
+* HDLC: Cisco Proprietry
+* PPP: Industry standard for point to point leased lines
+    * supports featureslike authentication
+    * CHAP (challenge handshake authentication protocol) and PAP
+    * hostname = username
+
+#Configuration
+
+* show controllers serial 0/0: shows DTE/DCE, clock rate and type of cable connected
+
+##PPP
+
+    # encapsulation ppp
+
+* Uses hostname as username
+* On R1
+    
+    * username R2 password cisco
+    
+    if* ppp authentication chap
+    
+    * debug ppp authentication
+
+* On R2:
+    
+    * username R1 password cisco
+
+Password must match on both sides
+    

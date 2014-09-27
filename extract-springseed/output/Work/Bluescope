@@ -1,0 +1,26 @@
+EDT TRACE TSP L2L3 <PLID>
+EDT ENABLE LOGTOFILE
+
+PORT 2002 for access to VXWORKS console access
+
+LOCATE FEATURE EXTENSION
+-will display information relating to call forwarding profiles enabled
+
+- kchmviewer for windows chm help files
+
+
+##TO DO 15/08/2013
+
+1. Verify that all data is correct in current address book CSV compared to emailed csv from Lauren. Number surpression for calls made from reception to execs. Swap number column with EA number column to stop temps calling execs directly.
+
+2. Suazanne Gallard keys.
+
+3. Call history on all phones?
+
+4. Steve to send through information regarding possible useful functionality
+
+5. Dial plan in OCS
+
+
+
+Call Rerouting Always takes precedence over call rerouting 1st alt when DND is enabled.

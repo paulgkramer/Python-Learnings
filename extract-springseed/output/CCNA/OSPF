@@ -1,0 +1,96 @@
+#Concepts
+
+Hellos: Timers, Area, Authentication, Subnet mask must match
+
+Timers: 
+
+Hello = 10 seconds
+Dead = 40 seconds
+
+##Areas: 
+
+A point of summarisation. Good for international WAN links.
+
+Uses:
+1. Sumarisation
+2. Fault containment
+
+###Area Border Routers
+    *Autonomous System Doundary Router (ASBR)
+        *Can be interconnected with other routing protocols
+    *All areas must be connected directly to the main area (area 0)
+
+
+##Metric 
+
+Cost = 100 / BW-in-Mbps
+
+* 56k = 1785
+* 64k = 1562
+* T1 (1.544) = 64
+* E1 (2.048) = 48
+* Ethernet = 10
+* Fast Ethernet = 1
+
+    - auto cost reference bandwidth <number>: will replace the 100 in metric calculation
+
+
+
+##Neighbor Relationships
+
+1. Determine Router ID - Highest active interface IP address when OSPF starts (loopbacks beat physical interfaces)
+
+2. Add interfaces to the link state database
+
+3. Send a hello message on chosen interfaces
+    *Router ID
+    *Area ID
+    *Authentication password
+    *Network Mask
+    *Hello and dead timers
+
+4. Receive Hello and check all above charateristics
+
+5. Send reply hello
+    *Am I listed as a nieghbor in your hello packet? If yes, reset dead timer. If no, add as new neighbor. (dead timer will always bounce between 40 and 30 seconds)
+
+6. Master/Slave relationship determined
+    *Determined by "priority", router-id breaks tie
+    *Master sends database description (DBD) packet. DBD = cliff notes of link-state database
+    *clave sends it DBD packet
+
+7. DBDs are acknowledged and reviewed
+    *Slave requests details (Link state requests - LSR)
+    *Master sends updates (Link state updates - LSU)
+    *Master Requests details (LSR)
+    *Slave sends updates (LSU)
+
+8. Neighbors are synchronised.    
+
+    *routers start in DOWN state, move to INIT, then to 2WAY, then EXSTART, then EXCHANGE (DBD exchange), LOADING (loading requests and updates), FULL
+
+Time to run the Dijkstra SPF algorithm to figure out what to do with link state information.
+
+
+
+#Configuration
+
+    #router ospf 1
+    #network 192.168.2.1 0.0.0.0 area 0
+passive-interface fa0/0 (stops sending hellos out of an interface)
+
+    #show ip ospf neighbor
+    #show ip route
+    #show ip protocols
+    #debug ip ospf packet
+
+
+The network command does two things:
+
+1.Identifies what interfaces to send hallo packets on
+2. Identifies what networks to advertise (looks at the IP and subnet configured on the interface and advertises that subnet)
+
+
+
+
+
