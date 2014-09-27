@@ -1,0 +1,1 @@
+{"name":"Password","content":"#Concepts\n\n#Configuration\n\nNot encrypted in clear text\n    #line console 0\n    #password cisco\n\nEncrypted password\n    #password 7 cisco\n\n\n\n","notebook":"32da721510abcbc5","id":"dddef4ade7083468","date":1382407986}
