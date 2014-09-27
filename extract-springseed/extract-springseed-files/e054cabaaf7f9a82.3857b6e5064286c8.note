@@ -1,1 +1,0 @@
-{"name":"Commands","content":"##DNS\n###Find the DNS server being used by DHCP client:\nnmcli dev list iface eth0 | grep IP4\n\n###Flush DNS\nsudo kill -HUP $(pgrep dnsmasq)","notebook":"e054cabaaf7f9a82","id":"3857b6e5064286c8","date":1383016727}

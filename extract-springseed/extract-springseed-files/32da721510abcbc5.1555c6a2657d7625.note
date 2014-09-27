@@ -1,1 +1,0 @@
-{"name":"Multiple OSPF Areas","content":"#Concepts\n\nABR: Area border router\n\n* Only need to add different area to border router\n\nTo summarize from ABR to backbone area:\n\n    #router ospf 1    \n    #area 10 range <summary route>\n","notebook":"32da721510abcbc5","id":"1555c6a2657d7625","date":1382508284}

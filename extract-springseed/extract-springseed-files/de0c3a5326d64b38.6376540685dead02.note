@@ -1,1 +1,0 @@
-{"name":"Restart Kazoo Services","content":"service rsyslog restart\nservice rabbitmq-server start\nservice haproxy start\nservice kz-whistle_apps start\nservice kz-ecallmgr start\nservice kamailio start\nservice httpd start","notebook":"de0c3a5326d64b38","id":"6376540685dead02","date":1388375766}
